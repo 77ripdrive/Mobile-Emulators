@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 
 public class AndroidEmulator {
 
-    protected AppiumDriver driver;
+    protected static AppiumDriver driver;
     private final static Logger lOGGER = Logger.getLogger(AndroidEmulator.class.getName());
 
-    public AppiumDriver startAndroidEmulator() throws MalformedURLException {
+    public static   AppiumDriver startAndroidEmulator() throws MalformedURLException {
         if (null == driver) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("appium-version", "1.15.1");
@@ -32,7 +32,7 @@ public class AndroidEmulator {
         return driver;
     }
 
-    public void close() {
+    public static void close() {
         driver.quit();
         driver = null;
         lOGGER.info("Emulator is closed");
