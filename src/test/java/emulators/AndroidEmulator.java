@@ -6,11 +6,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class AndroidEmulator {
 
-    protected static AppiumDriver driver;
+    private static AppiumDriver driver;
     private final static Logger lOGGER = Logger.getLogger(AndroidEmulator.class.getName());
 
     public static   AppiumDriver startAndroidEmulator() throws MalformedURLException {
@@ -29,6 +30,7 @@ public class AndroidEmulator {
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         }
         lOGGER.info("Emulator is started");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
         return driver;
     }
 

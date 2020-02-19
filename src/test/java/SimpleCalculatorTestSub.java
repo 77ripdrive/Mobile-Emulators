@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import utils.Actions;
+
+import static utils.Actions.*;
 
 public class SimpleCalculatorTestSub extends BaseCalculatorTest {
 
@@ -8,12 +9,12 @@ public class SimpleCalculatorTestSub extends BaseCalculatorTest {
 
     @Test
     void whenSetNumberThenSubtractionResultCorrect() {
-        Actions.deleteButton(driver).click();
-        Actions.setButton(driver, 9).click();
-        Actions.setMethod(driver, "sub").click();
-        Actions.setButton(driver, 6).click();
-        Actions.equalButton(driver).click();
-        Assertions.assertEquals(expectedResultSubtraction, Actions.getActualResult(driver));
+        deleteButton(driver).click();
+        setButton(driver, 9).click();
+        setMethod(driver, "sub").click();
+        setButton(driver, 6).click();
+        equalButton(driver).click();
+        Assertions.assertEquals(expectedResultSubtraction, getActualResult(driver));
     }
 
 }

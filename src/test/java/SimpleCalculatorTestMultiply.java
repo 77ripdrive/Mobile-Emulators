@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import utils.Actions;
+
+import static utils.Actions.*;
 
 public class SimpleCalculatorTestMultiply extends BaseCalculatorTest {
 
@@ -8,12 +9,12 @@ public class SimpleCalculatorTestMultiply extends BaseCalculatorTest {
 
     @Test
     void whenSetNumberThenMultiplicationResultCorrect() {
-        Actions.deleteButton(driver).click();
-        Actions.setButton(driver, 2).click();
-        Actions.setMethod(driver, "mul").click();
-        Actions.setButton(driver, 3).click();
-        Actions.equalButton(driver).click();
-        Assertions.assertEquals(expectedResultMultiply, Actions.getActualResult(driver));
+        deleteButton(driver).click();
+        setButton(driver, 2).click();
+        setMethod(driver, "mul").click();
+        setButton(driver, 3).click();
+        equalButton(driver).click();
+        Assertions.assertEquals(expectedResultMultiply, getActualResult(driver));
     }
 
 }
